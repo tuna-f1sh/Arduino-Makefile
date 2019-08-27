@@ -414,6 +414,8 @@ CPPFLAGS += -DUSB_PID=$(USB_PID)
 CPPFLAGS += -mthumb -nostdlib --param max-inline-insns-single=500 -fno-exceptions -Wl,-Map=$(OBJDIR)/$(TARGET).map
 CXXFLAGS += -fno-rtti -fno-threadsafe-statics -std=gnu++11
 
+ARFLAGS += --plugin $(ARM_TOOLS_DIR)/lib/gcc/arm-none-eabi/7.2.1/liblto_plugin.so
+
 ifndef SIZEFLAGS
     SIZEFLAGS += -B
 endif
