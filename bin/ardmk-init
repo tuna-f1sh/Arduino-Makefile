@@ -1,21 +1,9 @@
-#!/usr/bin/env python
-"""
-Arduino-mk Makefile and project initialiser
-
-This script can be used in its basic form create a project specific Makefile
-for use with Arduino-mk. Addionally, it can be used to create a template
-Arduino source file and a traditional boilerplate project file structure.
-
-Example:
-    * Run prompted within current working directory (requires Clint): `ardmk-init --cli`
-    * Create Arduino Uno Makefile (useful within a library example): `ardmk-init -b uno`
-    * Create boilerplate Arduino Uno project in current working directory of same
-      name: `ardmk-init -b uno --project`
-    * Create Arduino-mk nano Makefile in current working directory with template .ino:
-    `ardmk-init -b nano -u atmega328 -tn my-project`
-
-See `armk-init --help` for CLI arguments
-"""
+#!/bin/sh
+# The beginning of this script is both valid shell and valid python,
+# such that the script starts with the shell and is reexecuted with
+# the right python.
+'''which' python3 > /dev/null && exec python3 "$0" "$@" || exec python "$0" "$@"
+'''
 
 from __future__ import print_function
 import os
@@ -34,6 +22,24 @@ void setup() {\n\
 void loop() {\n\
 }\n\
 "
+
+"""
+Arduino-mk Makefile and project initialiser
+
+This script can be used in its basic form create a project specific Makefile
+for use with Arduino-mk. Addionally, it can be used to create a template
+Arduino source file and a traditional boilerplate project file structure.
+
+Example:
+    * Run prompted within current working directory (requires Clint): `ardmk-init --cli`
+    * Create Arduino Uno Makefile (useful within a library example): `ardmk-init -b uno`
+    * Create boilerplate Arduino Uno project in current working directory of same
+      name: `ardmk-init -b uno --project`
+    * Create Arduino-mk nano Makefile in current working directory with template .ino:
+    `ardmk-init -b nano -u atmega328 -tn my-project`
+
+See `armk-init --help` for CLI arguments
+"""
 
 ## Command Parser
 PARSER = argparse.ArgumentParser(prog='ardmk-init',
