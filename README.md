@@ -123,10 +123,11 @@ On Arch:
 sudo pacman -S python-pyserial
 ```
 
-On Mac using MacPorts:
+On macOS using Homebrew (one can install to System Python but this is not recommend or good practice):
 
 ```sh
-sudo port install py27-serial
+brew install python
+pip3 install pyserial
 ```
 
 On Windows:
