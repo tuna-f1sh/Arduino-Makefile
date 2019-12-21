@@ -861,7 +861,7 @@ ifndef RESET_CMD
   endif
   ifneq (,$(findstring CYGWIN,$(shell uname -s)))
       # confirm user is using default cygwin unix Python (which uses ttySx) and not Windows Python (which uses COMx)
-      ifeq ($(PYTHON_CMD),/usr/bin/python)
+      ifeq ($(PYTHON_CMD),/usr/bin/python3)
         RESET_CMD = $(ARD_RESET_ARDUINO) $(ARD_RESET_OPTS) $(DEVICE_PATH)
       else
         RESET_CMD = $(ARD_RESET_ARDUINO) $(ARD_RESET_OPTS) $(call get_monitor_port)
