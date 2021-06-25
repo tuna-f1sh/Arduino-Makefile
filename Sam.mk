@@ -245,9 +245,9 @@ endif
 ifndef GDB_OPTS
     # if using BMP do a scan and attach
     ifeq ($(findstring /dev/tty, $(strip $(GDB_PORT))), /dev/tty)
-        GDB_OPTS = -ex "target extended-remote $(GDB_PORT)" -ex "monitor swdp_scan" -ex "attach 1" -ex "load" -d $(OBJDIR) $(TARGET_ELF)
+        GDB_OPTS = -nx --batch -ex "target extended-remote $(GDB_PORT)" -ex "monitor swdp_scan" -ex "attach 1" -ex "load" -d $(OBJDIR) $(TARGET_ELF) -ex "kill"
     else
-        GDB_OPTS = -ex "target extended-remote $(GDB_PORT)" -ex "load" -d $(OBJDIR) $(TARGET_ELF)
+        GDB_OPTS = -nx --batch -ex "target extended-remote $(GDB_PORT)" -ex "load" -d $(OBJDIR) $(TARGET_ELF) -ex "kill"
     endif
 endif
 

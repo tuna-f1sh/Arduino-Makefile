@@ -1164,10 +1164,6 @@ ifndef DEBUG_FLAGS
     DEBUG_FLAGS = -O0 -g
 endif
 
-# SoftwareSerial requires -Os (some delays are tuned for this optimization level)
-%SoftwareSerial.cpp.o : OPTIMIZATION_FLAGS = -Os
-%Uart.cpp.o : OPTIMIZATION_FLAGS = -Os
-
 ifndef MCU_FLAG_NAME
     MCU_FLAG_NAME = mmcu
     $(call show_config_variable,MCU_FLAG_NAME,[DEFAULT])
@@ -1195,6 +1191,10 @@ OPTIMIZATION_FLAGS = -O$(OPTIMIZATION_LEVEL)
 endif
 
 CPPFLAGS += $(OPTIMIZATION_FLAGS)
+
+# SoftwareSerial requires -Os (some delays are tuned for this optimization level)
+%SoftwareSerial.cpp.o : CPPFLAGS += -Os
+%Uart.cpp.o : CPPFLAGS += -Os
 
 # USB IDs for the Caterina devices like leonardo or micro
 ifneq ($(CATERINA),)
