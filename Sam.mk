@@ -332,9 +332,9 @@ endif
 # Define them here to use ARM_TOOLS_PATH and allow auto finding of AVR_TOOLS_PATH
 
 AVR_TOOLS_DIR := $(ARM_TOOLS_DIR)
-#GDB     = $(ARM_TOOLS_PATH)/$(GDB_NAME)
+GDB     = $(ARM_TOOLS_DIR)/bin/$(GDB_NAME)
 # Use system gdb for now as Arduino supplied has lib error?
-GDB     = $(GDB_NAME)
+# GDB     = $(GDB_NAME)
 
 ########################################################################
 # FLAGS
